@@ -19,8 +19,8 @@ class TaskController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'title' => 'required|string',
-                'description' => 'nullable|string',
-                'attachment' => 'nullable|file|mimes:jpg,jpeg,png',
+                'description' => 'required|string',
+                'attachment' => 'required|file|mimes:jpg,jpeg,png',
                 'time' => 'required|date',
                 'status' => 'in:pending,in_progress,completed'
             ]);
@@ -167,11 +167,11 @@ class TaskController extends Controller
             }
 
             $validator = Validator::make($request->all(), [
-                'title' => 'nullable|string',
-                'description' => 'nullable|string',
-                'attachment' => 'nullable|file|mimes:jpg,jpeg,png,pdf,docx',
-                'time' => 'nullable|date',
-                'status' => 'nullable|in:pending,in_progress,completed'
+                'title' => 'required|string',
+                'description' => 'required|string',
+                'attachment' => 'required|file|mimes:jpg,jpeg,png,pdf,docx',
+                'time' => 'required|date',
+                'status' => 'in:pending,in_progress,completed'
             ]);
 
             if ($validator->fails()) {
